@@ -1,0 +1,32 @@
+---
+title: "p8105_hw1_zj2379"
+author: "Zheshu Jiang"
+date: "2023-09-20"
+output: html_document
+---
+## Probelem 1
+load the moderndive library and tidyverse library and then load the early_january_weather dataset
+```{r}
+library(moderndive)
+library(tidyverse)
+data("early_january_weather")
+```
+There are 15 following variables in the early_january_weather dataset: origin, year, month, day, hour, temp, humid, wind_dir, wind_speed, wind_gust, precip, pressure, visib, and time_hour. Specifically, for data type, 1 varible is chr, 4 variables are int, 9 variables are dbl, and 1 variable is POSIXct. 
+
+The dataset has 358 rows and 15 columns.  
+
+The mean temperature is 39.58212.
+```{r}
+early_january_weather
+mean(early_january_weather$temp)
+```
+create a scatterplot and save it as a pdf. 
+
+The scatterplot exhibits an overall trend of increasing values of y  as x increases, but it shows a zigzag or sawtooth-like pattern, with intermittent fluctuations in the upward direction
+```{r}
+ggplot(early_january_weather, aes(x=time_hour, y=temp,color = humid))+geom_point()
+ggsave("scatter_plot.pdf")
+```
+
+
+
