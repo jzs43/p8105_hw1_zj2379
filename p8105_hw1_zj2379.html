@@ -409,6 +409,41 @@ intermittent fluctuations in the upward direction</p>
 <pre class="r"><code>ggsave(&quot;scatter_plot.pdf&quot;)</code></pre>
 <pre><code>## Saving 7 x 5 in image</code></pre>
 </div>
+<div id="problem-2" class="section level2">
+<h2>Problem 2</h2>
+<p>create a data frame with a numeric vector, logical vector, character
+vector, and factor vector</p>
+<pre class="r"><code>data_frame = tibble(
+  vec_numeric = rnorm(10),
+  vec_logical = vec_numeric &gt; 10,
+  vec_char = c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;, &quot;h&quot;, &quot;i&quot;, &quot;j&quot;),
+  vec_factor = factor(c(&quot;high&quot;, &quot;high&quot;, &quot;high&quot;, &quot;low&quot;, &quot;low&quot;, &quot;low&quot;, &quot;medium&quot;, &quot;medium&quot;, &quot;medium&quot;, &quot;medium&quot;))
+)</code></pre>
+<p>Try to take the mean of each variable in the dataframe, only the
+means of numeric and logical vectors can be calculated, the means of
+character and factor vectors cannot be calculated.</p>
+<pre class="r"><code>mean(data_frame$vec_numeric)</code></pre>
+<pre><code>## [1] 0.2997062</code></pre>
+<pre class="r"><code>mean(data_frame$vec_logical)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>mean(data_frame$vec_char)</code></pre>
+<pre><code>## Warning in mean.default(data_frame$vec_char): argument is not numeric or
+## logical: returning NA</code></pre>
+<pre><code>## [1] NA</code></pre>
+<pre class="r"><code>mean(data_frame$vec_factor)</code></pre>
+<pre><code>## Warning in mean.default(data_frame$vec_factor): argument is not numeric or
+## logical: returning NA</code></pre>
+<pre><code>## [1] NA</code></pre>
+<p>After converting variables from one type to another using as.numeric,
+the means of logical and factor variables become available, while the
+mean of factor variable remains unavailable. Since the characters are
+not valid numbers,as.numeric function fails to convert the characters to
+numeric values.</p>
+<pre class="r"><code>as.numeric(data_frame$vec_logical)
+as.numeric(data_frame$vec_char)</code></pre>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
+<pre class="r"><code>as.numeric(data_frame$vec_factor)</code></pre>
+</div>
 
 
 
