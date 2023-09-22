@@ -43,10 +43,10 @@ data_frame = tibble(
 Only the means of numeric and logical vectors can be calculated, the means of character and factor vectors cannot be calculated. 
 ```{r}
 # Try to take the mean of each variable in the dataframe
-mean(data_frame$vec_numeric)
-mean(data_frame$vec_logical)
-mean(data_frame$vec_char)
-mean(data_frame$vec_factor)
+mean(pull(data_frame,vec_numeric))
+mean(pull(data_frame,vec_logical))
+mean(pull(data_frame,vec_char))
+mean(pull(data_frame,vec_factor))
 ```
 After converting variables from one type to another using as.numeric, the means of logical and factor variables become available, while the mean of factor variable remains unavailable. Since the characters are not valid numbers,as.numeric function fails to convert the characters to numeric values.
 ```{r, results='hide'}
