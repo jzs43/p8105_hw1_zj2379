@@ -2,7 +2,7 @@
 title: "p8105_hw1_zj2379"
 author: "Zheshu Jiang"
 date: "2023-09-20"
-output: html_document
+output: github_document
 ---
 ## Probelem 1
 ```{r}
